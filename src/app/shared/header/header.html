@@ -1,0 +1,95 @@
+<header class="main-header">
+  <div class="container header-flex">
+    <div class="logo-section">
+      <div class="university-logo">
+        <img src="/images/logo2.jpeg" />
+      </div>
+      <div class="college-logo">
+        <div class="college-name">كلية الحاسبات <span>و</span> الذكاء الاصطناعي</div>
+        <div class="college-sub">جامعة الأزهر - فرع البنات</div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        >الرئيسية</a
+      >
+
+      <div class="dropdown" routerLinkActive="active">
+        <a class="dropdown-toggle">عن الكلية <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-submenu">
+            <span class="submenu-toggle">إدارة الكلية <span class="submenu-arrow">◀</span></span>
+            <div class="submenu-flyout">
+              <a routerLink="/about/dean-word" routerLinkActive="active">كلمة عميدة الكلية</a>
+              <a routerLink="/about/administration" routerLinkActive="active">إدارة الكلية</a>
+              <a routerLink="/about/strategic-goals" routerLinkActive="active">الأهداف الاستراتيجية</a>
+              <a routerLink="/about/library" routerLinkActive="active">مكتبة الكلية</a>
+            </div>
+          </div>
+          <div class="dropdown-submenu">
+            <span class="submenu-toggle">نبذة عن الكلية <span class="submenu-arrow">◀</span></span>
+            <div class="submenu-flyout">
+              <a routerLink="/about/history" routerLinkActive="active">تاريخ الكلية</a>
+              <a routerLink="/about/vision" routerLinkActive="active">رؤية الكلية</a>
+              <a routerLink="/about/mission" routerLinkActive="active">رسالة الكلية</a>
+              <a routerLink="/about/activities" routerLinkActive="active">الأنشطة الطلابية</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dropdown" routerLinkActive="active">
+        <a class="dropdown-toggle">البرامج <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-submenu">
+            <span class="submenu-toggle">برامج البكالوريوس <span class="submenu-arrow">◀</span></span>
+            <div class="submenu-flyout">
+              <a routerLink="/programs/bachelor/data" routerLinkActive="active">علوم البيانات</a>
+              <a routerLink="/programs/bachelor/cs" routerLinkActive="active">علوم الحاسب</a>
+              <a routerLink="/programs/bachelor/ai" routerLinkActive="active">الذكاء الاصطناعي</a>
+              <a routerLink="/programs/bachelor/cyber" routerLinkActive="active">الأمن السيبراني</a>
+            </div>
+          </div>
+          <div class="dropdown-submenu">
+            <span class="submenu-toggle">برامج الدراسات العليا <span class="submenu-arrow">◀</span></span>
+            <div class="submenu-flyout">
+              <a routerLink="/programs/graduate/data" routerLinkActive="active">علوم البيانات</a>
+              <a routerLink="/programs/graduate/cs" routerLinkActive="active">علوم الحاسب</a>
+              <a routerLink="/programs/graduate/ai" routerLinkActive="active">الذكاء الاصطناعي</a>
+              <a routerLink="/programs/graduate/cyber" routerLinkActive="active">الأمن السيبراني</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="dropdown" routerLinkActive="active">
+        <a class="dropdown-toggle">خدمة الطلاب <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a routerLink="/services/lectures-schedule" routerLinkActive="active">جدول المحاضرات</a>
+          <a routerLink="/services/quizzes-schedule" routerLinkActive="active">جدول الكويزات</a>
+          <a routerLink="/services/midterm-schedule" routerLinkActive="active">جدول امتحان منتصف الفصل</a>
+          <a routerLink="/services/practical-schedule" routerLinkActive="active">جدول العملي</a>
+          <a routerLink="/services/final-schedule" routerLinkActive="active">جدول الفاينل</a>
+        </div>
+      </div>
+
+      <a routerLink="/aptitude-test" routerLinkActive="active">اختبار القدرات</a>
+      <a routerLink="/contact" routerLinkActive="active">اتصل بنا</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search">
+        <input type="text" placeholder="ابحث هنا" />
+        <button type="submit">بحث</button>
+      </div>
+
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active">AR</button>
+        <button type="button" class="lang-btn">EN</button>
+      </div>
+    </div>
+  </div>
+</header>

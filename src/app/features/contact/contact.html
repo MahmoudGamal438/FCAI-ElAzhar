@@ -1,0 +1,160 @@
+<div class="hero-banner">
+  <div class="hero-quote">"نرحب باستفساراتكم واقتراحاتكم، ونسعد بخدمتكم"</div>
+</div>
+
+<div class="container">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2>معلومات الاتصال</h2>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h4>العنوان</h4>
+          <p>
+            كلية الحاسبات والذكاء الاصطناعي - فرع البنات<br />
+            جامعة الأزهر، مدينة نصر، القاهرة، مصر
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h4>الهاتف</h4>
+          <p>+20 2 1234567</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <h4>البريد الإلكتروني</h4>
+          <p>info@azhar-cs.edu.eg</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <h4>مواعيد العمل</h4>
+          <p>الأحد - الخميس: 8:00 ص - 3:00 م</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📠</div>
+        <div>
+          <h4>الفاكس</h4>
+          <p>+20 2 1234568</p>
+        </div>
+      </div>
+
+      <div class="social-contact">
+        <h4>تابعونا على</h4>
+        <div class="social-links-contact">
+          <a href="#" class="social-link">فيسبوك</a>
+          <a href="#" class="social-link">تويتر</a>
+          <a href="#" class="social-link">يوتيوب</a>
+          <a href="#" class="social-link">انستغرام</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>أرسل لنا رسالة</h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">الاسم الكامل</label>
+          <input type="text" id="name" formControlName="name" placeholder="أدخل اسمك" />
+          @if (f['name'].invalid && f['name'].touched) {
+            <div class="error-text">
+              @if (f['name'].errors?.['required']) {
+                <span>الاسم مطلوب</span>
+              }
+              @if (f['name'].errors?.['minlength']) {
+                <span>الاسم يجب ألا يقل عن 3 أحرف</span>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني</label>
+          <input type="email" id="email" formControlName="email" placeholder="أدخل بريدك الإلكتروني" />
+          @if (f['email'].invalid && f['email'].touched) {
+            <div class="error-text">
+              @if (f['email'].errors?.['required']) {
+                <span>البريد الإلكتروني مطلوب</span>
+              }
+              @if (f['email'].errors?.['email']) {
+                <span>صيغة البريد الإلكتروني غير صحيحة</span>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="phone">رقم الهاتف (اختياري)</label>
+          <input type="tel" id="phone" formControlName="phone" placeholder="أدخل رقم هاتفك" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">الموضوع</label>
+          <select id="subject" formControlName="subject">
+            <option value="">اختر الموضوع</option>
+            @for (s of subjects; track s) {
+              <option [value]="s">{{ s }}</option>
+            }
+          </select>
+          @if (f['subject'].invalid && f['subject'].touched) {
+            <div class="error-text">
+              <span>يرجى اختيار الموضوع</span>
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="message">الرسالة</label>
+          <textarea id="message" rows="6" formControlName="message" placeholder="اكتب رسالتك هنا..."></textarea>
+          @if (f['message'].invalid && f['message'].touched) {
+            <div class="error-text">
+              @if (f['message'].errors?.['required']) {
+                <span>الرسالة مطلوبة</span>
+              }
+              @if (f['message'].errors?.['minlength']) {
+                <span>الرسالة يجب ألا تقل عن 10 أحرف</span>
+              }
+            </div>
+          }
+        </div>
+
+        <button type="submit" class="btn-submit">إرسال الرسالة</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <h2>موقع الكلية</h2>
+    <div class="map-placeholder">
+      <p>📍 جامعة الأزهر - فرع البنات</p>
+      <p>مدينة نصر، القاهرة، مصر</p>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.932196144885!2d31.294946!3d30.047857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f2cf7f3e3b5%3A0x8e8e8e8e8e8e8e8e!2z2YXYsdmD2Ykg2KjZitmE2YUg2KfZhNij2YrYp9mG!5e0!3m2!1sar!2seg!4v1700000000000"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>نسعد بتواصلكم معنا.. لأن تواصلكم هو بوابة تطويرنا</p>
+    <div class="quote-author">— كلية الحاسبات والذكاء الاصطناعي</div>
+  </div>
+</div>

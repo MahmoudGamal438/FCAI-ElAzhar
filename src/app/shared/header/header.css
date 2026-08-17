@@ -1,0 +1,424 @@
+.main-header {
+  background-color: #fff;
+  padding: 15px 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.university-logo img {
+  width: 50px;
+  height: 50px;
+  margin-left: 12px;
+}
+
+.college-logo {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.college-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a2634;
+  margin-bottom: 3px;
+}
+
+.college-name span {
+  color: #0077cc;
+}
+
+.college-sub {
+  font-size: 14px;
+  color: #6a7a8e;
+}
+
+.main-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main-nav > a {
+  color: #1a2634;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.main-nav > a:hover,
+.main-nav > a.active {
+  color: #0077cc;
+  background: #f0f7ff;
+}
+
+/* ===== Dropdown Styles ===== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  color: #1a2634;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-toggle:hover {
+  color: #0077cc;
+  background: #f0f7ff;
+}
+
+.dropdown.active > .dropdown-toggle {
+  color: #0077cc;
+  background: #f0f7ff;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0;
+  padding-top: 8px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding-bottom: 8px;
+  min-width: 220px;
+  border: 1px solid #e8edf3;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.25s ease;
+  z-index: 100;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 22px;
+  color: #2d3b4f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-right: 3px solid transparent;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f8fc;
+  color: #0077cc;
+  border-right-color: #0077cc;
+}
+
+.dropdown-menu a.active {
+  background: #f0f7ff;
+  color: #0077cc;
+  border-right-color: #0077cc;
+  font-weight: 600;
+}
+
+/* ===== Nested submenu (flyout) ===== */
+.dropdown-submenu {
+  position: relative;
+}
+
+.submenu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 22px;
+  color: #2d3b4f;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-right: 3px solid transparent;
+}
+
+.submenu-arrow {
+  font-size: 10px;
+  color: #6a7a8e;
+}
+
+.dropdown-submenu:hover > .submenu-toggle {
+  background: #f5f8fc;
+  color: #0077cc;
+  border-right-color: #0077cc;
+}
+
+.dropdown-submenu:hover > .submenu-toggle .submenu-arrow {
+  color: #0077cc;
+}
+
+.submenu-flyout {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  min-width: 220px;
+  border: 1px solid #e8edf3;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: all 0.2s ease;
+  z-index: 110;
+}
+
+.dropdown-submenu:hover .submenu-flyout {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== Search ===== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.search input {
+  padding: 8px 14px;
+  border: 1.5px solid #e0e7ef;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f8f9fb;
+  transition: all 0.3s ease;
+  width: 180px;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #0077cc;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1);
+}
+
+.search button {
+  padding: 8px 18px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search button:hover {
+  background-color: #005fa3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.3);
+}
+
+.lang-switcher {
+  display: flex;
+  background: #f0f4f8;
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: #6a7a8e;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: #0077cc;
+}
+
+.lang-btn.active {
+  background: #ffffff;
+  color: #0077cc;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .header-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logo-section {
+    justify-content: center;
+  }
+
+  .main-nav {
+    justify-content: center;
+  }
+
+  .header-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search {
+    justify-content: center;
+  }
+
+  .search input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .submenu-flyout {
+    position: static;
+    display: none;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: #f8faff;
+    min-width: 0;
+    padding: 4px 0;
+    margin: 0;
+  }
+
+  .dropdown-submenu:hover .submenu-flyout {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 10px 15px;
+  }
+
+  .college-name {
+    font-size: 16px;
+  }
+
+  .college-sub {
+    font-size: 12px;
+  }
+
+  .main-nav {
+    gap: 4px;
+  }
+
+  .main-nav > a,
+  .dropdown-toggle {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .dropdown-menu {
+    min-width: 180px;
+  }
+
+  .submenu-toggle {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .submenu-flyout a {
+    font-size: 12px;
+  }
+
+  .search input {
+    width: 140px;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .search button {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav > a,
+  .dropdown-toggle {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .dropdown-menu {
+    min-width: 160px;
+  }
+
+  .search input {
+    width: 100px;
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .search button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}

@@ -1,0 +1,271 @@
+.hero-quote {
+  font-size: 22px;
+  font-weight: 600;
+  color: blue;
+  font-style: italic;
+  margin: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container > div {
+  background: #ffffff;
+  padding: 35px 40px;
+  margin-bottom: 28px;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.container > div:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+.container h2 {
+  color: #1a2634;
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f4f8;
+  position: relative;
+}
+
+.container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  width: 50px;
+  height: 2px;
+  background: #0077cc;
+}
+
+.container p {
+  color: #2d3b4f;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+}
+
+.container ul li {
+  color: #2d3b4f;
+  font-size: 16px;
+  line-height: 1.8;
+  padding: 7px 0 7px 30px;
+  position: relative;
+  border-bottom: 1px solid #f8f9fb;
+}
+
+.container ul li:last-child {
+  border-bottom: none;
+}
+
+.highlight {
+  color: #0077cc;
+  font-weight: 600;
+}
+
+/* ===== Library Cards ===== */
+.library-card {
+  background: #ffffff;
+  padding: 30px 35px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border-right: 4px solid #0077cc;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.library-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateX(-4px);
+}
+
+.library-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.library-header h3 {
+  color: #1a2634;
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.library-badge {
+  background: #f0f7ff;
+  color: #0077cc;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.library-card p {
+  color: #2d3b4f;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.library-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.library-card ul li {
+  color: #2d3b4f;
+  font-size: 15px;
+  line-height: 1.8;
+  padding: 4px 0 4px 28px;
+  position: relative;
+  border-bottom: none;
+}
+
+.quote-block {
+  border-radius: 12px;
+  padding: 30px 35px;
+  margin-top: 10px;
+  text-align: center;
+  color: blue;
+}
+
+.quote-block p {
+  color: blue;
+  font-size: 22px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.quote-author {
+  font-size: 16px;
+  font-style: italic;
+}
+
+@media (max-width: 992px) {
+  .hero-quote {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container > div {
+    padding: 24px 20px;
+  }
+
+  .container h2 {
+    font-size: 21px;
+  }
+
+  .container h2::after {
+    width: 35px;
+  }
+
+  .container ul li {
+    padding: 6px 0 6px 24px;
+    font-size: 15px;
+  }
+
+  .library-card {
+    padding: 22px 20px;
+  }
+
+  .library-header h3 {
+    font-size: 18px;
+  }
+
+  .library-card ul li {
+    font-size: 14px;
+    padding: 4px 0 4px 22px;
+  }
+
+  .quote-block p {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-quote {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  .container > div {
+    padding: 18px 16px;
+    margin-bottom: 20px;
+  }
+
+  .container h2 {
+    font-size: 19px;
+  }
+
+  .container p {
+    font-size: 15px;
+  }
+
+  .container ul li {
+    font-size: 14px;
+    padding: 5px 0 5px 20px;
+  }
+
+  .container ul li::before {
+    font-size: 18px;
+    top: 4px;
+  }
+
+  .library-card {
+    padding: 18px 16px;
+  }
+
+  .library-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .library-header h3 {
+    font-size: 17px;
+  }
+
+  .library-card p {
+    font-size: 15px;
+  }
+
+  .library-card ul li {
+    font-size: 13px;
+    padding: 3px 0 3px 18px;
+  }
+
+  .library-card ul li::before {
+    font-size: 12px;
+    top: 3px;
+  }
+
+  .quote-block p {
+    font-size: 17px;
+    padding: 0;
+  }
+
+  .quote-author {
+    font-size: 14px;
+  }
+}
