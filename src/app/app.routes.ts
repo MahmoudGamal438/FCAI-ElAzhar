@@ -52,8 +52,7 @@ export const routes: Routes = [
   },
   {
     path: 'about/activities',
-    loadComponent: () =>
-      import('./features/about/activities/activities').then((m) => m.Activities),
+    loadComponent: () => import('./features/about/activities/activities').then((m) => m.Activities),
     title: 'الأنشطة الطلابية',
   },
 
@@ -61,9 +60,7 @@ export const routes: Routes = [
   {
     path: 'programs/bachelor/data',
     loadComponent: () =>
-      import('./features/programs/bachelor/data-science/data-science').then(
-        (m) => m.DataScience,
-      ),
+      import('./features/programs/bachelor/data-science/data-science').then((m) => m.DataScience),
     title: 'علوم البيانات - بكالوريوس',
   },
   {
@@ -95,9 +92,7 @@ export const routes: Routes = [
   {
     path: 'programs/graduate/data',
     loadComponent: () =>
-      import('./features/programs/graduate/data-science/data-science').then(
-        (m) => m.DataScience,
-      ),
+      import('./features/programs/graduate/data-science/data-science').then((m) => m.DataScience),
     title: 'علوم البيانات - دراسات عليا',
   },
   {
@@ -171,6 +166,39 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/aptitude-test/aptitude-test').then((m) => m.AptitudeTest),
     title: 'اختبار القدرات',
+  },
+
+  // ===== البوابة الإلكترونية =====
+  {
+    path: 'portal',
+    loadComponent: () => import('./features/portal/portal').then((m) => m.Portal),
+    title: 'البوابة الإلكترونية',
+  },
+  {
+    path: 'portal/login/:role',
+    loadComponent: () => import('./features/portal/login/login').then((m) => m.PortalLogin),
+    title: 'تسجيل الدخول',
+  },
+  {
+    path: 'portal/student',
+    loadComponent: () => import('./features/portal/student/student').then((m) => m.StudentPortal),
+    title: 'بوابة الطالبات',
+    canActivate: [() => import('./shared/services/portal.guard').then((m) => m.portalGuard)],
+    data: { role: 'student' },
+  },
+  {
+    path: 'portal/faculty',
+    loadComponent: () => import('./features/portal/faculty/faculty').then((m) => m.FacultyPortal),
+    title: 'بوابة أعضاء هيئة التدريس',
+    canActivate: [() => import('./shared/services/portal.guard').then((m) => m.portalGuard)],
+    data: { role: 'faculty' },
+  },
+  {
+    path: 'portal/admin',
+    loadComponent: () => import('./features/portal/admin/admin').then((m) => m.AdminPortal),
+    title: 'بوابة الإدارة',
+    canActivate: [() => import('./shared/services/portal.guard').then((m) => m.portalGuard)],
+    data: { role: 'admin' },
   },
 
   // ===== اتصل بنا =====

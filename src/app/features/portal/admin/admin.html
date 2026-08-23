@@ -1,0 +1,257 @@
+<div class="portal-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">🗂️</div>
+      <div>
+        <div class="brand-title">بوابة الإدارة</div>
+        <div class="brand-sub">كلية الحاسبات والذكاء الاصطناعي</div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">{{ user()?.name?.charAt(0) }}</div>
+      <div>
+        <div class="user-name">{{ user()?.name }}</div>
+        <div class="user-dept">{{ user()?.dept }}</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      @for (item of navItems; track item.key) {
+        <button
+          type="button"
+          class="nav-item"
+          [class.active]="activeSection() === item.key"
+          (click)="setSection(item.key)"
+        >
+          <span class="nav-icon">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </button>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <a routerLink="/home" class="nav-item">
+        <span class="nav-icon">🏠</span>
+        <span>الموقع الرئيسي</span>
+      </a>
+      <a routerLink="/portal" class="nav-item logout" (click)="logout()">
+        <span class="nav-icon">🚪</span>
+        <span>تسجيل الخروج</span>
+      </a>
+    </div>
+  </aside>
+
+  <main class="main-area">
+    <header class="topbar">
+      <h1>{{ activeSection() | portalTitle }}</h1>
+      <div class="topbar-user">
+        <span class="topbar-role">الإدارة</span>
+        <span class="topbar-name">{{ user()?.name }}</span>
+      </div>
+    </header>
+
+    <div class="content-area">
+      @if (activeSection() === 'overview') {
+        <section>
+          <div class="welcome-banner">
+            <h2>لوحة التحكم - {{ user()?.name }}</h2>
+            <p>إدارة شاملة لبيانات الطالبات وأعضاء هيئة التدريس والإعلانات والطلبات الإدارية.</p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-value">3,850</div>
+              <div class="stat-label">طالبة بالبكالوريوس</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">780</div>
+              <div class="stat-label">طالبة دراسات عليا</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">184</div>
+              <div class="stat-label">عضو هيئة تدريس</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">56</div>
+              <div class="stat-label">طلب قيد المراجعة</div>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="panel">
+              <h3>الطلبات الأحدث</h3>
+              @for (r of requests.slice(0, 3); track r.id) {
+                <div class="request-row">
+                  <div class="req-type">{{ r.type }}</div>
+                  <div class="req-subject">{{ r.subject }}</div>
+                  <div class="req-status">{{ r.status }}</div>
+                </div>
+              }
+              <button type="button" class="link-btn" (click)="setSection('admin-requests')">
+                عرض كل الطلبات ←
+              </button>
+            </div>
+
+            <div class="panel">
+              <h3>أقسام الكلية</h3>
+              @for (d of departments.slice(0, 4); track d.name) {
+                <div class="dept-row">
+                  <span>{{ d.name }}</span>
+                  <span class="dept-head">{{ d.head }}</span>
+                </div>
+              }
+              <button type="button" class="link-btn" (click)="setSection('departments')">
+                عرض كل الأقسام ←
+              </button>
+            </div>
+          </div>
+        </section>
+      }
+
+      @if (activeSection() === 'users') {
+        <section>
+          <div class="section-title">إدارة المستخدمين</div>
+          <div class="user-summary">
+            <div class="summary-item"><strong>3,850</strong> طالبة</div>
+            <div class="summary-item"><strong>184</strong> عضو هيئة تدريس</div>
+            <div class="summary-item"><strong>24</strong> إداري</div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>الكود</th>
+                  <th>الاسم</th>
+                  <th>الفرقة</th>
+                  <th>المعدل</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (s of students; track s.id) {
+                  <tr>
+                    <td>{{ s.id }}</td>
+                    <td class="text-start">{{ s.name }}</td>
+                    <td>{{ s.level }}</td>
+                    <td>{{ s.gpa }}</td>
+                    <td>
+                      <span class="status-badge" [class.status-ok]="s.status === 'منتظمة'"
+                        [class.status-no]="s.status === 'إنذار'">{{ s.status }}</span>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box">عرض أول 8 طالبات من قاعدة البيانات. لإدارة الحسابات الكاملة يلزم ربط قاعدة بيانات فعلية.</div>
+        </section>
+      }
+
+      @if (activeSection() === 'admin-announcements') {
+        <section>
+          <div class="section-title">إدارة الإعلانات</div>
+
+          <div class="announce-form">
+            <h4>نشر إعلان جديد</h4>
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-input"
+                placeholder="عنوان الإعلان"
+                [value]="newAnnouncement().title"
+                (input)="updateAnnouncementField('title', ($any($event.target).value))"
+              />
+            </div>
+            <div class="form-row">
+              <select
+                class="form-input"
+                [value]="newAnnouncement().audience"
+                (change)="updateAnnouncementField('audience', ($any($event.target).value))"
+              >
+                <option value="جميع الطالبات">جميع الطالبات</option>
+                <option value="الفرقة الرابعة">الفرقة الرابعة</option>
+                <option value="أعضاء هيئة التدريس">أعضاء هيئة التدريس</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <textarea
+                rows="3"
+                class="form-input"
+                placeholder="نص الإعلان..."
+                [value]="newAnnouncement().body"
+                (input)="updateAnnouncementField('body', ($any($event.target).value))"
+              ></textarea>
+            </div>
+            <button type="button" class="save-btn" (click)="addAnnouncement()">📢 نشر الإعلان</button>
+          </div>
+
+          <div class="announce-list">
+            @for (a of announcements(); track a.id) {
+              <div class="announce-card">
+                <div class="announce-head">
+                  <span class="announce-aud">{{ a.audience }}</span>
+                  <span class="announce-date">{{ a.date }}</span>
+                </div>
+                <h4>{{ a.title }}</h4>
+                <p>{{ a.body }}</p>
+                <div class="announce-author">— {{ a.author }}</div>
+              </div>
+            }
+          </div>
+        </section>
+      }
+
+      @if (activeSection() === 'departments') {
+        <section>
+          <div class="section-title">الأقسام والوحدات</div>
+          <div class="card-grid">
+            @for (d of departments; track d.name) {
+              <div class="card-item">
+                <div class="card-name">{{ d.name }}</div>
+                <div class="dept-detail">رئيس القسم / المسؤول: {{ d.head }}</div>
+                @if (d.students > 0) {
+                  <div class="dept-detail">عدد الطالبات: {{ d.students }}</div>
+                }
+              </div>
+            }
+          </div>
+        </section>
+      }
+
+      @if (activeSection() === 'admin-requests') {
+        <section>
+          <div class="section-title">الطلبات الإدارية الواردة</div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>نوع الطلب</th>
+                  <th>الموضوع</th>
+                  <th>التاريخ</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (r of requests; track r.id) {
+                  <tr>
+                    <td>{{ r.id }}</td>
+                    <td>{{ r.type }}</td>
+                    <td class="text-start">{{ r.subject }}</td>
+                    <td>{{ r.date }}</td>
+                    <td>
+                      <span class="status-badge" [class.status-waiting]="r.status === 'قيد المراجعة'"
+                        [class.status-ok]="r.status === 'مقبول'"
+                        [class.status-no]="r.status === 'مرفوض'">{{ r.status }}</span>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+      }
+    </div>
+  </main>
+</div>

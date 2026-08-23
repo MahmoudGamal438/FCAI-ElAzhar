@@ -1,16 +1,12 @@
 .hero-quote {
   font-size: 22px;
   font-weight: 600;
-  color: white;
+  color: blue;
   font-style: italic;
-  padding: 18px 0 18px 30px;
-  margin: 15px 0 25px;
-  line-height: 1.7;
-  background: #6784cc;
-  border-radius: 8px;
+  margin: 10px  ;
+  line-height: 1.5;
   text-align: center;
 }
-
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -220,77 +216,26 @@
   box-shadow: 0 6px 20px rgba(0, 119, 204, 0.35);
 }
 
-.map-section {
-  background: #ffffff;
-  padding: 35px 40px;
-  margin-bottom: 28px;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-}
 
-.map-section h2 {
-  color: #1a2634;
-  font-size: 24px;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #f0f4f8;
-  position: relative;
-}
-
-.map-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  right: 0;
-  width: 50px;
-  height: 2px;
-  background: #0077cc;
-}
-
-.map-placeholder {
-  text-align: center;
-}
-
-.map-placeholder p {
-  color: #2d3b4f;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.map-frame {
-  margin-top: 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-.map-frame iframe {
-  display: block;
-  border-radius: 12px;
-}
 
 .quote-block {
-  background: #6784cc;
   border-radius: 12px;
   padding: 30px 35px;
   margin-top: 10px;
-  border: 1px solid #e8f0fe;
   text-align: center;
-  color: #ffffff;
+  color: blue;
 }
 
 .quote-block p {
+  color:blue;
   font-size: 22px;
   line-height: 1.8;
-  /* color: #1a2634; */
   margin-bottom: 8px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .quote-author {
   font-size: 16px;
-  /* color: #6a7a8e; */
   font-style: italic;
 }
 

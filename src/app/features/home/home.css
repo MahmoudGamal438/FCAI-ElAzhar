@@ -8,52 +8,6 @@
   line-height: 1.5;
   text-align: center;
 }
-.btn-primary {
-  display: inline-block;
-  background-color: #0077cc;
-  color: #ffffff;
-  padding: 14px 40px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.25);
-}
-
-.btn-primary:hover {
-  background-color: #005fa3;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 119, 204, 0.35);
-}
-
-.hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: flex-start;
-  margin-top: 10px;
-}
-
-.hero-badge {
-  background: #ffffff;
-  padding: 10px 22px;
-  border-radius: 30px;
-  color: #1e2a3a;
-  font-weight: 500;
-  font-size: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border: 1px solid #e8edf3;
-  transition: all 0.2s ease;
-}
-
-.hero-badge:hover {
-  border-color: #0077cc;
-  color: #0077cc;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.12);
-}
-
 .container {
   max-width: 1400px;
   margin: 0 auto;

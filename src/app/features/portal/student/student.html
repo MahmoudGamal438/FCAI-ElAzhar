@@ -1,0 +1,291 @@
+<div class="portal-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">🎓</div>
+      <div>
+        <div class="brand-title">البوابة الإلكترونية</div>
+        <div class="brand-sub">كلية الحاسبات والذكاء الاصطناعي</div>
+      </div>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">{{ user()?.name?.charAt(0) }}</div>
+      <div>
+        <div class="user-name">{{ user()?.name }}</div>
+        <div class="user-dept">{{ user()?.dept }} - طالبة</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      @for (item of navItems; track item.key) {
+        <button
+          type="button"
+          class="nav-item"
+          [class.active]="activeSection() === item.key"
+          (click)="setSection(item.key)"
+        >
+          <span class="nav-icon">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </button>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <a routerLink="/home" class="nav-item">
+        <span class="nav-icon">🏠</span>
+        <span>الموقع الرئيسي</span>
+      </a>
+      <a routerLink="/portal" class="nav-item logout" (click)="logout()">
+        <span class="nav-icon">🚪</span>
+        <span>تسجيل الخروج</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-area">
+    <header class="topbar">
+      <div>
+        <h1>{{ activeSection() | portalTitle }}</h1>
+      </div>
+      <div class="topbar-user">
+        <span class="topbar-role">طالبة</span>
+        <span class="topbar-name">{{ user()?.name }}</span>
+      </div>
+    </header>
+
+    <div class="content-area">
+      <!-- Overview -->
+      @if (activeSection() === 'overview') {
+        <section>
+          <div class="welcome-banner">
+            <h2>أهلاً بكِ، {{ user()?.name }}</h2>
+            <p>يسعدنا رؤيتك في بوابة الطالبات. إليكِ ملخص حالتك الدراسية لهذا الفصل.</p>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-value">{{ courses.length }}</div>
+              <div class="stat-label">مقرر هذا الترم</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">{{ gpa }}</div>
+              <div class="stat-label">المعدل التراكمي</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">{{ exams.length }}</div>
+              <div class="stat-label">امتحان فاينل</div>
+            </div>
+              <div class="stat-card">
+                <div class="stat-value">{{ pendingRequests }}</div>
+                <div class="stat-label">طلبات قيد المراجعة</div>
+              </div>
+          </div>
+
+          <div class="two-col">
+            <div class="panel">
+              <h3>أحدث الإعلانات</h3>
+              @for (a of announcements.slice(0, 3); track a.id) {
+                <div class="announcement-item">
+                  <div class="ann-title">{{ a.title }}</div>
+                  <div class="ann-meta">{{ a.date }} · {{ a.author }}</div>
+                </div>
+              }
+              <button type="button" class="link-btn" (click)="setSection('announcements')">
+                عرض كل الإعلانات ←
+              </button>
+            </div>
+
+            <div class="panel">
+              <h3>أقرب الامتحانات</h3>
+              @for (e of exams.slice(0, 3); track $index) {
+                <div class="exam-item">
+                  <div class="exam-name">{{ e.course }}</div>
+                  <div class="exam-date">{{ e.date }} - {{ e.time }}</div>
+                </div>
+              }
+              <button type="button" class="link-btn" (click)="setSection('exams')">
+                عرض كل الامتحانات ←
+              </button>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- Courses -->
+      @if (activeSection() === 'courses') {
+        <section>
+          <div class="section-title">المقررات الدراسية - الفصل الدراسي الثاني</div>
+          <div class="card-grid">
+            @for (c of courses; track c.code) {
+              <div class="card-item">
+                <div class="card-code">{{ c.code }}</div>
+                <div class="card-name">{{ c.name }}</div>
+                <div class="card-meta">
+                  <span>عدد الساعات: {{ c.hours }}</span>
+                  <span>{{ c.semester }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+      }
+
+      <!-- Grades -->
+      @if (activeSection() === 'grades') {
+        <section>
+          <div class="section-title">الدرجات والنتائج - الفصل الدراسي الأول</div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>كود المادة</th>
+                  <th>اسم المادة</th>
+                  <th>أعمال السنة</th>
+                  <th>منتصف الفصل</th>
+                  <th>العملي</th>
+                  <th>النهائي</th>
+                  <th>المجموع</th>
+                  <th>التقدير</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (g of grades; track g.code) {
+                  <tr>
+                    <td>{{ g.code }}</td>
+                    <td class="text-start">{{ g.name }}</td>
+                    <td>{{ g.work }}</td>
+                    <td>{{ g.midterm }}</td>
+                    <td>{{ g.practical }}</td>
+                    <td>{{ g.final }}</td>
+                    <td><strong>{{ g.total }}</strong></td>
+                    <td><span class="grade-badge">{{ g.letter }}</span></td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box">المعدل التراكمي الحالي: <strong>{{ gpa }}</strong> من 4.00</div>
+        </section>
+      }
+
+      <!-- Schedule -->
+      @if (activeSection() === 'schedule') {
+        <section>
+          <div class="section-title">جدول المحاضرات - الفصل الدراسي الثاني</div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>اليوم</th>
+                  <th>الوقت</th>
+                  <th>المادة</th>
+                  <th>القاعة</th>
+                  <th>النوع</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (s of schedule; track $index) {
+                  <tr>
+                    <td>{{ s.day }}</td>
+                    <td>{{ s.time }}</td>
+                    <td class="text-start">{{ s.course }}</td>
+                    <td>{{ s.room }}</td>
+                    <td><span class="tag" [class.tag-practical]="s.type === 'عملي'">{{ s.type }}</span></td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+      }
+
+      <!-- Exams -->
+      @if (activeSection() === 'exams') {
+        <section>
+          <div class="section-title">جدول امتحانات الفصل الدراسي الثاني (الفاينل)</div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>المادة</th>
+                  <th>اليوم</th>
+                  <th>الوقت</th>
+                  <th>القاعة</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (e of exams; track e.course) {
+                  <tr>
+                    <td class="text-start">{{ e.course }}</td>
+                    <td>{{ e.date }}</td>
+                    <td>{{ e.time }}</td>
+                    <td>{{ e.room }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box">تُعقد الامتحانات الشفهية والعملية قبل الامتحانات التحريرية بأسبوع.</div>
+        </section>
+      }
+
+      <!-- Requests -->
+      @if (activeSection() === 'requests') {
+        <section>
+          <div class="section-title">طلباتي الإلكترونية</div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>نوع الطلب</th>
+                  <th>الموضوع</th>
+                  <th>التاريخ</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (r of requests; track r.id) {
+                  <tr>
+                    <td>{{ r.id }}</td>
+                    <td>{{ r.type }}</td>
+                    <td class="text-start">{{ r.subject }}</td>
+                    <td>{{ r.date }}</td>
+                    <td>
+                      <span class="status-badge" [class.status-waiting]="r.status === 'قيد المراجعة'"
+                        [class.status-ok]="r.status === 'مقبول'"
+                        [class.status-no]="r.status === 'مرفوض'">{{ r.status }}</span>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+          <div class="note-box">لتقديم طلب جديد، يرجى التواصل مع مكتب شئون الطلاب.</div>
+        </section>
+      }
+
+      <!-- Announcements -->
+      @if (activeSection() === 'announcements') {
+        <section>
+          <div class="section-title">إعلانات الكلية</div>
+          <div class="announce-list">
+            @for (a of announcements; track a.id) {
+              <div class="announce-card">
+                <div class="announce-head">
+                  <span class="announce-aud">{{ a.audience }}</span>
+                  <span class="announce-date">{{ a.date }}</span>
+                </div>
+                <h4>{{ a.title }}</h4>
+                <p>{{ a.body }}</p>
+                <div class="announce-author">— {{ a.author }}</div>
+              </div>
+            }
+          </div>
+        </section>
+      }
+    </div>
+  </main>
+</div>

@@ -1,14 +1,12 @@
-.page-hero {
-  background: #6784cc;
-  padding: 45px 20px;
+/* computer-science.css */
+.data-quote {
+  font-size: 22px;
+  font-weight: 600;
+  color: blue;
+  font-style: italic;
+  margin: 10px;
+  line-height: 1.5;
   text-align: center;
-}
-
-.page-hero h1 {
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
 }
 
 .container {
@@ -17,59 +15,450 @@
   padding: 0 20px;
 }
 
-.page-card {
+.program-section {
   background: #ffffff;
-  padding: 50px 40px;
-  margin: 30px auto;
+  padding: 40px 45px;
+  margin: 28px auto;
   border-radius: 16px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.04);
-  text-align: center;
-  max-width: 600px;
+  transition: box-shadow 0.3s ease;
 }
 
-.page-card-icon {
-  font-size: 42px;
-  margin-bottom: 15px;
+.program-section:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
 }
 
-.page-card h2 {
+.program-section h2 {
   color: #1a2634;
-  font-size: 22px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f4f8;
+  position: relative;
+}
+
+.program-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  width: 50px;
+  height: 2px;
+  background: #0077cc;
+}
+
+.program-section p {
+  color: #2d3b4f;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.highlight {
+  color: #0077cc;
+  font-weight: 600;
+}
+
+/* Two column grid - الرؤية والرسالة */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 28px auto;
+}
+
+.vision-card {
+  background: #ffffff;
+  padding: 30px 35px;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 4px solid #0077cc;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.vision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.vision-card h3 {
+  color: #1a2634;
+  font-size: 20px;
   margin-bottom: 12px;
 }
 
-.page-card p {
+.vision-card p {
   color: #2d3b4f;
   font-size: 15px;
   line-height: 1.8;
-  margin-bottom: 24px;
+  margin: 0;
 }
 
-.btn-primary {
-  display: inline-block;
-  background-color: #0077cc;
-  color: #ffffff;
-  padding: 12px 32px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
+/* Objectives list */
+.objectives-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.objectives-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.objectives-list li:last-child {
+  border-bottom: none;
+}
+
+.objective-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.objectives-list li strong {
+  color: #0077cc;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.objectives-list li div {
+  color: #2d3b4f;
   font-size: 15px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.25);
+  line-height: 1.6;
 }
 
-.btn-primary:hover {
-  background-color: #005fa3;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 119, 204, 0.35);
+/* Year group - الخطة الدراسية */
+.year-group {
+  margin-top: 32px;
+}
+
+.year-title {
+  color: #1a2634;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 12px 20px;
+  background: #f0f7ff;
+  border-radius: 10px;
+  border-right: 4px solid #0077cc;
+  margin-bottom: 18px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.course-card {
+  background: #f8f9fb;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid #e8edf3;
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-color: #0077cc;
+}
+
+.course-card.highlight-card {
+  background: #f0f7ff;
+  border-color: #0077cc;
+}
+
+.course-code {
+  display: inline-block;
+  background: #e8edf3;
+  color: #1a2634;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.course-card h4 {
+  color: #1a2634;
+  font-size: 15px;
+  margin: 0 0 6px 0;
+}
+
+.course-card p {
+  color: #6a7a8e;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.skill-item {
+  background: #f8f9fb;
+  padding: 20px 16px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e8edf3;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-color: #0077cc;
+}
+
+.skill-icon {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.skill-item h4 {
+  color: #1a2634;
+  font-size: 14px;
+  margin: 0 0 4px 0;
+}
+
+.skill-item p {
+  color: #6a7a8e;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Career grid */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.career-card {
+  background: #f8f9fb;
+  padding: 22px 18px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e8edf3;
+  transition: all 0.3s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-color: #0077cc;
+  background: #ffffff;
+}
+
+.career-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.career-card h4 {
+  color: #1a2634;
+  font-size: 15px;
+  margin: 0 0 6px 0;
+}
+
+.career-card p {
+  color: #6a7a8e;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Partners list */
+.partners-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.partners-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f4f8;
+  color: #2d3b4f;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.partners-list li:last-child {
+  border-bottom: none;
+}
+
+.partners-list li strong {
+  color: #0077cc;
+}
+
+/* Alumni section */
+.alumni-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px 0;
+}
+
+.alumni-list li {
+  padding: 8px 0;
+  color: #2d3b4f;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.alumni-list li strong {
+  color: #0077cc;
+}
+
+.alumni-quote h4,
+.alumni-quote p {
+  color: blue;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.8;
+  margin: 0 0 8px 0;
+}
+
+.alumni-quote p {
+  font-style: normal;
+}
+
+.quote-author {
+  color: #6a7a8e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .courses-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .program-section {
+    padding: 28px 22px;
+  }
+
+  .program-section h2 {
+    font-size: 21px;
+  }
+
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .final-message-content {
+    padding: 35px 25px;
+  }
+
+  .final-message-content h2 {
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 480px) {
-  .page-hero h1 {
+  .data-quote {
+    font-size: 18px;
+    margin: 5px;
+  }
+
+  .program-section {
+    padding: 20px 16px;
+    margin: 16px auto;
+  }
+
+  .program-section h2 {
+    font-size: 19px;
+  }
+
+  .program-section p {
+    font-size: 15px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-card {
+    padding: 20px 18px;
+  }
+
+  .vision-card h3 {
+    font-size: 17px;
+  }
+
+  .objectives-list li {
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .objective-icon {
     font-size: 22px;
   }
-  .page-card {
-    padding: 30px 20px;
+
+  .alumni-quote h4,
+  .alumni-quote p {
+    font-size: 16px;
+  }
+
+  .final-message-content {
+    padding: 28px 18px;
+  }
+
+  .final-message-content p {
+    font-size: 16px;
+  }
+
+  .final-icon {
+    font-size: 36px;
+  }
+
+  .btn-primary {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
