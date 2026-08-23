@@ -1,14 +1,209 @@
-<div class="page-hero">
-  <div class="container">
-    <h1>جدول المحاضرات</h1>
+<div class="lectures-schedule-page">
+  <div class="page-hero">
+    <div class="container">
+      <h1>جدول المحاضرات</h1>
+      <p class="hero-sub">الفصل الدراسي الثاني - العام الجامعي 2025/2026</p>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="page-card">
-    <div class="page-card-icon">🚧</div>
-    <h2>المحتوى قيد الإعداد</h2>
-    <p>نعمل حاليًا على تجهيز محتوى صفحة "جدول المحاضرات"، وسيتم نشره قريبًا إن شاء الله. تابعونا للاطلاع على آخر التحديثات.</p>
-    <a routerLink="/home" class="btn-primary">العودة للصفحة الرئيسية</a>
+  <div class="container">
+    <div class="info-note">
+      <div class="info-note-icon">&#128218;</div>
+      <div class="info-note-body">
+        <strong>بيان هام:</strong> يُطبق هذا الجدول ابتداءً من الأحد 22 فبراير 2026 ويستمر حتى نهاية الفصل الدراسي الثاني.
+        تُعقد المحاضرات النظريّة في المدرجات (أ، ب، ج) بالمبنى الرئيسي، بينما تُعقد المحاضرات العمليّة في المعامل المتخصصة بالدور الأرضي.
+        في حال وجود تعديل يُعلن عنه من خلال لوحة الإعلانات الإلكترونية وقناة الكلية الرسمية.
+      </div>
+    </div>
+
+    <!-- Weekly lecture grid -->
+    <section class="schedule-section">
+      <div class="section-header">
+        <div class="section-label">الجدول الأسبوعي</div>
+        <h2>جدول المحاضرات النظرية</h2>
+        <p>توزيع محاضرات الفرق الأربع على أيام الأسبوع الدراسي</p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>الفرقة الدراسية</th>
+              <th>السبت</th>
+              <th>الأحد</th>
+              <th>الاثنين</th>
+              <th>الثلاثاء</th>
+              <th>الأربعاء</th>
+              <th>الخميس</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-year">الفرقة الأولى<br><span class="sub-text">علوم الحاسب</span></td>
+              <td>رياضيات منفصلة<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>برمجة (C) <span class="badge badge-theory">نظري</span><br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>مهارات الحاسب والإنترنت<br><span class="sub-text">11:00 - 13:00</span></td>
+              <td>مدخل إلى علوم الحاسب<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>اللغة الإنجليزية<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>أساسيات الذكاء الاصطناعي<br><span class="sub-text">10:00 - 12:00</span></td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الثانية<br><span class="sub-text">علوم الحاسب</span></td>
+              <td>هياكل البيانات<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>قواعد البيانات<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>شبكات الحاسب<br><span class="sub-text">11:00 - 13:00</span></td>
+              <td>أنظمة التشغيل<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>تحليل وتصميم النظم<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>برمجة الويب<br><span class="sub-text">10:00 - 12:00</span></td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الثالثة<br><span class="sub-text">علوم الحاسب</span></td>
+              <td>الذكاء الاصطناعي<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>هندسة البرمجيات<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>أمن المعلومات<br><span class="sub-text">11:00 - 13:00</span></td>
+              <td>تعلّم الآلة<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>الترجمة الآلية ومعالجة اللغات<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>قواعد البيانات المتقدمة<br><span class="sub-text">10:00 - 12:00</span></td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الرابعة<br><span class="sub-text">علوم الحاسب</span></td>
+              <td>معالجة الصور الرقمية<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>الحوسبة السحابية<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>مشروع التخرج - متابعة<br><span class="sub-text">11:00 - 13:00</span></td>
+              <td>أمن الشبكات<br><span class="sub-text">10:00 - 12:00</span></td>
+              <td>أنظمة قواعد البيانات الموزعة<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>تنقيب البيانات<br><span class="sub-text">10:00 - 12:00</span></td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الرابعة<br><span class="sub-text">نظم المعلومات</span></td>
+              <td>هندسة البيانات الضخمة<br><span class="sub-text">12:00 - 14:00</span></td>
+              <td>إدارة المشروعات التقنية<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>مشروع التخرج - متابعة<br><span class="sub-text">11:00 - 13:00</span></td>
+              <td>أنظمة دعم القرار<br><span class="sub-text">12:00 - 14:00</span></td>
+              <td>أمن قواعد البيانات<br><span class="sub-text">09:00 - 11:00</span></td>
+              <td>الذكاء الاصطناعي التوليدي<br><span class="sub-text">10:00 - 12:00</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legend">
+        <span class="legend-item"><span class="badge badge-theory">نظري</span> محاضرة نظرية</span>
+        <span class="legend-item"><span class="badge badge-lab">عملي</span> محاضرة عملية بالمعمل</span>
+        <span class="legend-item"><span class="badge badge-project">متابعة</span> متابعة مشاريع التخرج</span>
+      </div>
+    </section>
+
+    <!-- Practical lectures table -->
+    <section class="schedule-section alt-bg">
+      <div class="section-header">
+        <div class="section-label">الجدول العملي</div>
+        <h2>محاضرات العملي</h2>
+        <p>تُعقد في المعامل المتخصصة ويجب الالتزام بالمجموعة المحددة</p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>الفرقة</th>
+              <th>المادة العملية</th>
+              <th>المجموعة</th>
+              <th>اليوم</th>
+              <th>الوقت</th>
+              <th>المعمل</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-year">الفرقة الأولى</td>
+              <td>برمجة (C)</td>
+              <td>أ</td>
+              <td>الأحد</td>
+              <td>12:00 - 14:00</td>
+              <td>معمل البرمجة (1)</td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الأولى</td>
+              <td>برمجة (C)</td>
+              <td>ب</td>
+              <td>الاثنين</td>
+              <td>13:00 - 15:00</td>
+              <td>معمل البرمجة (2)</td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الثانية</td>
+              <td>قواعد البيانات</td>
+              <td>أ</td>
+              <td>الثلاثاء</td>
+              <td>12:00 - 14:00</td>
+              <td>معمل قواعد البيانات</td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الثانية</td>
+              <td>شبكات الحاسب</td>
+              <td>ب</td>
+              <td>الأربعاء</td>
+              <td>13:00 - 15:00</td>
+              <td>معمل الشبكات</td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الثالثة</td>
+              <td>تعلّم الآلة</td>
+              <td>أ</td>
+              <td>الأحد</td>
+              <td>12:00 - 14:00</td>
+              <td>معمل الذكاء الاصطناعي</td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الثالثة</td>
+              <td>أمن المعلومات</td>
+              <td>ب</td>
+              <td>الثلاثاء</td>
+              <td>14:00 - 16:00</td>
+              <td>معمل الأمن السيبراني</td>
+            </tr>
+            <tr>
+              <td class="cell-year">الفرقة الرابعة</td>
+              <td>معالجة الصور الرقمية</td>
+              <td>أ</td>
+              <td>الأربعاء</td>
+              <td>11:00 - 13:00</td>
+              <td>معمل الذكاء الاصطناعي</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Download / print note -->
+    <section class="schedule-section">
+      <div class="section-header">
+        <div class="section-label">تحميل وطباعة</div>
+        <h2>نسخة مطبوعة من الجدول</h2>
+        <p>احرصي على الاحتفاظ بنسخة من الجدول لمتابعة محاضراتك أولا بأول</p>
+      </div>
+      <div class="download-card">
+        <div class="download-card-body">
+          <div class="download-icon">&#128196;</div>
+          <div>
+            <h3>جدول المحاضرات الأسبوعي - PDF</h3>
+            <p>نسخة رسمية موقعة من شئون التعليم والطلاب تتضمن جداول المحاضرات النظرية والعملية</p>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="btn-primary" onclick="window.print()">طباعة الجدول</a>
+      </div>
+    </section>
+
+    <section class="notes-card">
+      <h3>ملاحظات عامة</h3>
+      <ul class="notes-list">
+        <li>الحضور إلزامي للمحاضرات النظرية والعملية، وتُحتسب نسبة الغياب وفق اللائحة الداخلية للكلية.</li>
+        <li>يُمنع استخدام الهاتف المحمول داخل المدرجات والمعامل إلا في التطبيقات التعليمية بإذن من عضو هيئة التدريس.</li>
+        <li>تُغلق أبواب المدرجات والمعامل بعد 10 دقائق من بدء المحاضرة.</li>
+        <li>للاطلاع على التعديلات الطارئة على الجدول، تابعي إعلانات قسم شئون التعليم والطلاب.</li>
+        <li>تُعقد المحاضرات حسب التوقيت المحلي لجمهورية مصر العربية (التوقيت الصيفي يُطبق اعتبارًا من آخر جمعة في أبريل).</li>
+      </ul>
+    </section>
   </div>
 </div>
